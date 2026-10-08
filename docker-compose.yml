@@ -1,0 +1,27 @@
+# Banco de dados do projeto (somente para desenvolvimento local).
+# As credenciais abaixo sao as mesmas usadas no ci.yml e no application.properties.
+
+services:
+  db:
+    image: mysql:8
+    container_name: gastos-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: gastos
+      MYSQL_USER: app
+      MYSQL_PASSWORD: app123
+      MYSQL_ROOT_PASSWORD: root123
+      TZ: America/Sao_Paulo
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-proot123"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  db_data:
