@@ -10,4 +10,5 @@ public class GastosBackendApplication {
 		SpringApplication.run(GastosBackendApplication.class, args);
 	}
 
+	//teste
 }
