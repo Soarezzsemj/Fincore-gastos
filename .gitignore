@@ -1,0 +1,16 @@
+# Segredos
+.env
+*.env
+
+# IDEs
+.idea/
+.vscode/
+*.iml
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Build (garantia extra)
+target/
+node_modules/
